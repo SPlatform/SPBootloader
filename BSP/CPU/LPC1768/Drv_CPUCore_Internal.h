@@ -62,4 +62,13 @@
  */
 INTERNAL void StartContextSwitching(void);
 
+/*
+ * Jump to specified image.
+ *
+ * @param imageAddress Image address to jump
+ *
+ * @return none
+ */
+INTERNAL void JumpToImage(reg32_t imageAddress);
+
 #endif /* __DRV_CPUCORE_INTERNAL_H */

@@ -57,6 +57,16 @@
  */
 #define TASK_START_ADDRESS_MASK			((reg32_t)0xfffffffeUL)
 
+/*
+ * Mask to set Vector Table offset address.
+ *  In case of jump from bootloader to Firmware, Vector table must be set for
+ *  application.
+ *
+ *  TODO : This mask locates Vector table in Flash (Start of Image) but Vector
+ *  table can be located in SRAM. To do that Bit29 should be set.
+ */
+#define VECTOR_TABLE_SET_MASK           (0x1FFFFF80)
+
 /* 
  * Priority of Kernel Interrupts. 
  *  Lowest priority!
@@ -265,4 +275,24 @@ PUBLIC reg32_t* Drv_CPUCore_CSInitializeTaskStack(uint8_t* stack, uint32_t stack
 
 	/* Return actual stack address for execution start */
 	return (reg32_t*)stackMap;
+}
+
+/*
+ * Jumps to other image on system.
+ * It is used to pass control from Bootloader to Application (e.g. Firmware)
+ *
+ * @param image image address of Application in memory.
+ *
+ * @return none
+ */
+void Drv_CPUCore_JumpToImage(reg32_t imageAddress)
+{
+    /*
+     * Change the Vector Table to the USER_FLASH_START in case the user
+     * application uses interrupts
+     */
+    SCB->VTOR = imageAddress & VECTOR_TABLE_SET_MASK;
+
+    /* We are ready to jump to other image now */
+    JumpToImage(imageAddress);
 }

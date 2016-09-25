@@ -174,6 +174,25 @@ ASSEMBLY_FUNCTION void StartContextSwitching(void){
 	nop
 }
 
+/*
+ * http://www.nxp.com/documents/application_note/AN10866.pdf
+ * Thanks to section '5.3.1 User application execution'
+*/
+/*
+ * Starts context switching by calling SVC interrupt
+ *
+ * @param none
+ *
+ * @return This function does not return, jumps to SVC ISR and SVC ISR continues
+ *         with the Kernel (and user) defined tasks.
+ *
+ */
+ASSEMBLY_FUNCTION void JumpToImage(uint32_t imageAddress)
+{
+   LDR SP, [R0]     /* Load new stack pointer address */
+   LDR PC, [R0, #4] /* Load new program counter address */
+}
+
 #else /* GNU C - GCC Assembly Area */
 /*
  * TODO : [IMP] Until we use assembly code, we will not test Assembly modules.
