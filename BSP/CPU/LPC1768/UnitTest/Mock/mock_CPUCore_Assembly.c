@@ -78,3 +78,8 @@ void StartContextSwitching(void)
 	/* Jump to SVC. SVC ISR starts context switching */
 	POS_SVC_Handler();
 }
+
+void JumpToImage(uint32_t imageAddress)
+{
+	(void)imageAddress;
+}
