@@ -1,0 +1,3 @@
+void SystemInit(void)
+{
+}

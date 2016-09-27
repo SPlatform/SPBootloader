@@ -15,10 +15,22 @@
     <Filter Include="Bootloader\BSP">
       <UniqueIdentifier>{cd180838-e022-487d-83e1-726955fa3487}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Bootloader\Environment">
+      <UniqueIdentifier>{20091484-68a4-49e1-aeee-4619ea94b1f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bootloader\Environment\ExternalLib">
+      <UniqueIdentifier>{f06433db-0bfd-4b75-9592-64b540d78d02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Bootloader\Environment\ExternalLib\mbedTLS">
+      <UniqueIdentifier>{f37b2162-eabc-48f7-83bb-4a634820ae7c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MainForm.h">
       <Filter>Platform</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\..\Bootloader\Bootloader_Internal.h">
+      <Filter>Bootloader\Bootloader</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -31,5 +43,50 @@
     <ClCompile Include="..\..\..\..\BSP\CPU\x86\Drv_CPUCore.c">
       <Filter>Bootloader\BSP</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\..\Bootloader\Bootloader_Security.c">
+      <Filter>Bootloader\Bootloader</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\rsa.c">
+      <Filter>Bootloader\Environment\ExternalLib\mbedTLS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\bignum.c">
+      <Filter>Bootloader\Environment\ExternalLib\mbedTLS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\md.c">
+      <Filter>Bootloader\Environment\ExternalLib\mbedTLS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\oid.c">
+      <Filter>Bootloader\Environment\ExternalLib\mbedTLS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\md5.c">
+      <Filter>Bootloader\Environment\ExternalLib\mbedTLS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\sha1.c">
+      <Filter>Bootloader\Environment\ExternalLib\mbedTLS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\sha256.c">
+      <Filter>Bootloader\Environment\ExternalLib\mbedTLS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\asn1parse.c">
+      <Filter>Bootloader\Environment\ExternalLib\mbedTLS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\md_wrap.c">
+      <Filter>Bootloader\Environment\ExternalLib\mbedTLS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\ripemd160.c">
+      <Filter>Bootloader\Environment\ExternalLib\mbedTLS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\platform.c">
+      <Filter>Bootloader\Environment\ExternalLib\mbedTLS</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\memory_buffer_alloc.c">
+      <Filter>Bootloader\Environment\ExternalLib\mbedTLS</Filter>
+    </ClCompile>
+    <ClCompile Include="VSPlatform.c">
+      <Filter>Platform</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="MainForm.resx" />
   </ItemGroup>
 </Project>

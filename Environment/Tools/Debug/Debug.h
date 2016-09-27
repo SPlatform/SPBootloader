@@ -37,12 +37,11 @@
 #define __DEBUG_H
 
 /********************************* INCLUDES ***********************************/
-#include "ProjectConfig.h"
 
 /***************************** MACRO DEFINITIONS ******************************/
 
 /* TODO : Define a output for that macro */
-#define DEBUG_MESSAGE(message)
+#define DEBUG_PRINT(message, ...)
 
 #if ENABLE_DEBUG_ASSERT
 
