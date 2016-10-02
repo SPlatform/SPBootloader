@@ -50,8 +50,8 @@ static void platform_free_uninit( void *ptr )
 #define MBEDTLS_PLATFORM_STD_FREE     platform_free_uninit
 #endif /* !MBEDTLS_PLATFORM_STD_FREE */
 
-void * (*mbedtls_calloc)( size_t, size_t ) = MBEDTLS_PLATFORM_STD_CALLOC;
-void (*mbedtls_free)( void * )     = MBEDTLS_PLATFORM_STD_FREE;
+void * (*mbedtls_calloc)( size_t, size_t );
+void (*mbedtls_free)( void * );
 
 int mbedtls_platform_set_calloc_free( void * (*calloc_func)( size_t, size_t ),
                               void (*free_func)( void * ) )

@@ -453,7 +453,8 @@ uint32_t SystemCoreClock = __CORE_CLK;/*!< System Clock Frequency (Core Clock)*/
  *
  * @brief  Updates the SystemCoreClock with current core Clock
  *         retrieved from cpu registers.
- */void SystemCoreClockUpdate (void)            /* Get Core Clock Frequency      */
+ */
+void SystemCoreClockUpdate (void)            /* Get Core Clock Frequency      */
 {
   /* Determine clock frequency according to clock register values             */
   if (((LPC_SC->PLL0STAT >> 24) & 3) == 3) { /* If PLL0 enabled and connected */

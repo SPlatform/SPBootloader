@@ -1,4 +1,8 @@
 #pragma once
+extern "C"
+{
+	extern int main(void);
+}
 
 namespace Bootloader {
 
@@ -21,6 +25,8 @@ namespace Bootloader {
 			//
 			//TODO: Add the constructor code here
 			//
+
+			main();
 		}
 
 	protected:

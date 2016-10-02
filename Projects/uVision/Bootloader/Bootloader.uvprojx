@@ -132,12 +132,12 @@
             <UseExternalTool>0</UseExternalTool>
             <RunIndependent>0</RunIndependent>
             <UpdateFlashBeforeDebugging>1</UpdateFlashBeforeDebugging>
-            <Capability>0</Capability>
-            <DriverSelection>-1</DriverSelection>
+            <Capability>1</Capability>
+            <DriverSelection>4096</DriverSelection>
           </Flash1>
           <bUseTDR>1</bUseTDR>
           <Flash2>BIN\UL2CM3.DLL</Flash2>
-          <Flash3></Flash3>
+          <Flash3>"" ()</Flash3>
           <Flash4></Flash4>
           <pFcarmOut></pFcarmOut>
           <pFcarmGrp></pFcarmGrp>
@@ -310,7 +310,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>1</Optim>
+            <Optim>4</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -334,7 +334,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\Include;..\..\..\Include\BSP;..\..\..\BSP\CPU\LPC1768;..\..\..\BSP\CPU\LPC1768\internal;..\..\..\Bootloader\Config</IncludePath>
+              <IncludePath>..\..\..\Include;..\..\..\Include\BSP;..\..\..\BSP\CPU\LPC1768;..\..\..\BSP\CPU\LPC1768\internal;..\..\..\Bootloader\Config;..\..\..\Bootloader\Config\mbedtls;..\..\..\Environment\ExternalLib\mbedTLS\include;..\..\..\Environment\ExternalLib\mbedTLS\include\mbedtls;..\..\..\Environment\Tools\Debug</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -355,7 +355,7 @@
             </VariousControls>
           </Aads>
           <LDads>
-            <umfTarg>0</umfTarg>
+            <umfTarg>1</umfTarg>
             <Ropi>0</Ropi>
             <Rwpi>0</Rwpi>
             <noStLib>0</noStLib>
@@ -382,6 +382,21 @@
               <FileType>1</FileType>
               <FilePath>..\..\..\Bootloader\Bootloader.c</FilePath>
             </File>
+            <File>
+              <FileName>Bootloader_Security.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Bootloader\Bootloader_Security.c</FilePath>
+            </File>
+            <File>
+              <FileName>Bootloader_Internal.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\..\Bootloader\Bootloader_Internal.h</FilePath>
+            </File>
+            <File>
+              <FileName>Bootloader_Config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\..\Bootloader\Config\Bootloader_Config.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -406,6 +421,71 @@
               <FileName>system_LPC17xx.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\..\..\BSP\CPU\LPC1768\internal\system_LPC17xx.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>External</GroupName>
+          <Files>
+            <File>
+              <FileName>asn1parse.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\asn1parse.c</FilePath>
+            </File>
+            <File>
+              <FileName>bignum.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\bignum.c</FilePath>
+            </File>
+            <File>
+              <FileName>md.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\md.c</FilePath>
+            </File>
+            <File>
+              <FileName>md_wrap.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\md_wrap.c</FilePath>
+            </File>
+            <File>
+              <FileName>md5.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\md5.c</FilePath>
+            </File>
+            <File>
+              <FileName>oid.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\oid.c</FilePath>
+            </File>
+            <File>
+              <FileName>platform.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\platform.c</FilePath>
+            </File>
+            <File>
+              <FileName>ripemd160.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\ripemd160.c</FilePath>
+            </File>
+            <File>
+              <FileName>rsa.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\rsa.c</FilePath>
+            </File>
+            <File>
+              <FileName>sha1.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\sha1.c</FilePath>
+            </File>
+            <File>
+              <FileName>sha256.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\sha256.c</FilePath>
+            </File>
+            <File>
+              <FileName>memory_buffer_alloc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\memory_buffer_alloc.c</FilePath>
             </File>
           </Files>
         </Group>
