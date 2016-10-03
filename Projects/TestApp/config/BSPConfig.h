@@ -1,10 +1,10 @@
 /*******************************************************************************
  *
- * @file Drv_UserTimer.h
+ * @file BSPConfig.h
  *
  * @author Murat Cakmak
  *
- * @brief User Timer Driver Interface
+ * @brief Project Specific BSP Configurations
  *
  * @see https://github.com/P-LATFORM/P-OS/wiki
  *
@@ -12,7 +12,7 @@
  *
  * The MIT License (MIT)
  *
- * Copyright (c) 2016 P-OS
+ * Copyright (c) 2016 Platform
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -33,27 +33,26 @@
  * SOFTWARE.
  *
  *******************************************************************************/
-#ifndef __DRV_USERTIMER_H
-#define __DRV_USERTIMER_H
+#ifndef __BOARD_CONFIG_H
+#define __BOARD_CONFIG_H
 
 /********************************* INCLUDES ***********************************/
-
 #include "postypes.h"
-
 /***************************** MACRO DEFINITIONS ******************************/
-#define DRV_TIMER_INVALID_HANDLE        (-1)
 
 /***************************** TYPE DEFINITIONS *******************************/
-typedef int32_t Drv_TimerHandle;
-typedef void (*Drv_TimerCallback)(void);
 
-/*************************** FUNCTION DEFINITIONS *****************************/
-void Drv_UserTimer_Init(void);
-Drv_TimerHandle Drv_UserTimer_Create(Drv_TimerCallback userTimerCB);
-void Drv_UserTimer_Remove(Drv_TimerHandle timer);
-void Drv_UserTimer_Start(Drv_TimerHandle timer, uint32_t timeout);
-void Drv_UserTimer_Stop(Drv_TimerHandle timer, uint32_t timeout);
-void Drv_UserTimer_DelayUs(uint32_t microseconds);
-void Drv_UserTimer_DelayMs(uint32_t milliseconds);
+/* BOARD LED INTERFACE */
+#define BOARD_ENABLE_LED_INTERFACE 1
 
-#endif	/* __DRV_USERTIMER_H */
+/* BOARD LCD INTERFACE */
+#define BOARD_ENABLE_LCD_INTERFACE 0
+
+#if (BOARD_ENABLE_LED_INTERFACE && BOARD_ENABLE_LCD_INTERFACE)
+    #error "LED and LCD interfaces can not be used at same time!"
+#endif
+
+#define CPU_TIMER_MAX_TIMER_COUNT       (30)
+
+
+#endif	/* __BOARD_CONFIG_H */

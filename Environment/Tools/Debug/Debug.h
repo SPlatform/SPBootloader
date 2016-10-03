@@ -39,9 +39,12 @@
 /********************************* INCLUDES ***********************************/
 
 /***************************** MACRO DEFINITIONS ******************************/
+#define DEBUG_LEVEL_INFO				1
+#define DEBUG_LEVEL_WARNING				2
+#define DEBUG_LEVEL_ERROR				3
 
 /* TODO : Define a output for that macro */
-#define DEBUG_PRINT(message, ...)
+#define DEBUG_PRINT(level, message, ...)
 
 #if ENABLE_DEBUG_ASSERT
 

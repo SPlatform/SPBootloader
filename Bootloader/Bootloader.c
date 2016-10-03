@@ -8,10 +8,8 @@
  *          - Listens for upgrade attempt
  *              - Upgrades Firmware
  *          - Validates Firmware Image
- *              - Jump to Firmware if Firmware has a valid signature
+ *              - Jumps to Firmware if Firmware has a valid signature
  *
- *          ROAD MAP
- *          1 - Firmware Upgrade
  * @see
  *
  *******************************************************************************
@@ -26,7 +24,10 @@
 
 /********************************* INCLUDES ***********************************/
 
-#include "DRV_CPUCore.h"
+#include "Drv_UART.h"
+#include "Drv_UserTimer.h"
+#include "Drv_Timer.h"
+#include "Drv_CPUCore.h"
 
 #include "Bootloader_Internal.h"
 #include "Bootloader_Config.h"
@@ -44,7 +45,7 @@
 typedef struct
 {
 	/* Meta Data of Firmware */
-	FirmwareMetaData firmwareMetaData;
+	FirmwareInfo* firmwareInfo;
 } BootloaderSettings;
 
 /**************************** FUNCTION PROTOTYPES *****************************/
@@ -58,16 +59,12 @@ PRIVATE BootloaderSettings settings = { { 0 } };
  * Reads Firmware Area and returns Meta Data of Firmware
  * 
  */
-PRIVATE ALWAYS_INLINE void GetMetaData(FirmwareMetaData* metaData)
+PRIVATE ALWAYS_INLINE void GetMetaData(FirmwareInfo** metaData)
 {
-    /* TODO Remove Test Mode */
-#if BL_TEST_MODE
-	metaData->imageAddress = (uint8_t*)TEST_HEX;
-	metaData->imageSignatureAddress = (uint8_t*)TEST_HEX_SIGN;
-	metaData->imageLength = strlen(TEST_HEX);
-	metaData->imageSignatureLength = sizeof(TEST_HEX_SIGN) / sizeof(TEST_HEX_SIGN[0]);
+#if !SIMULATION_MODE
+	*metaData = (FirmwareInfo*)FIRMWARE_START_ADDRESS;
 #else
-#error "Not defined yet!"
+	/* Should be implemented */
 #endif
 }
 
@@ -81,7 +78,7 @@ PRIVATE ALWAYS_INLINE bool CheckAndWaitForUpgradeAttemmp(void)
 
 	/* TODO Check external attemp like a pin */
 
-	return (BOOL_TRUE);
+	return (true);
 }
 
 /*
@@ -93,19 +90,19 @@ PRIVATE ALWAYS_INLINE bool IsValidImage(void)
 {
 	BLStatusCode statusCode;
 
-	/* Get Meta Data */
-	GetMetaData(&settings.firmwareMetaData);
+	/* Get Meta Data of Firmware */
+	GetMetaData(&settings.firmwareInfo);
 
 	/* Check whether image is valid */
-	statusCode = BL_ValidateImage(&settings.firmwareMetaData);
+	statusCode = BL_ValidateImage(settings.firmwareInfo);
 
 	if (BL_Status_Success != statusCode)
 	{
-        DEBUG_PRINT("\nBL Err:%d", statusCode);
-        return BOOL_FALSE;
+        DEBUG_PRINT(DEBUG_LEVEL_ERROR, "\nBL Err:%d", statusCode);
+        return false;
 	}
 
-	return BOOL_TRUE;
+	return true;
 }
 
 /*
@@ -122,9 +119,13 @@ PRIVATE ALWAYS_INLINE int32_t InitializeHW(void)
      * moved here to call it explicitly
      */
     SystemInit();
+
+	/* Initialize Drivers */
+	Drv_UART_Init();
     
     return RESULT_SUCCESS;
 }
+
 /***************************** PUBLIC FUNCTIONS *******************************/
 /*
  * Bootloader application entry point
@@ -132,12 +133,12 @@ PRIVATE ALWAYS_INLINE int32_t InitializeHW(void)
  */
 int main(void)
 {
-	bool upgradeFW = BOOL_FALSE;
-	bool validImage = BOOL_FALSE;
+	bool upgradeFW = false;
+	bool validImage = false;
     
     /* Initialize HW First */
     InitializeHW();
-    
+
     /* Initialize Bootloader Security */
     BL_SecurityInit();
     
@@ -145,24 +146,23 @@ int main(void)
     {
         /* Check new image attempt */
         upgradeFW = CheckAndWaitForUpgradeAttemmp();
-        if (BOOL_TRUE == upgradeFW)
+        if (true == upgradeFW)
         {
-            /*
-             * TODO Download Image Here
-             */
+			//BL_UpgradeFirmware();
         }
         
         /* Check Whether Firmware is valid (signed) */
         validImage = IsValidImage();
+
+		/* TODO Sleep in case of fail */
         
         /* Try until have a valid image */
-    } while (BOOL_FALSE == validImage);
+    } while (false == validImage);
     
     /*
      * Firmware is a validated image so just jump to firmware. 
      */
-    BL_JumpToFirmware((uint32_t)settings.firmwareMetaData.imageAddress);
+    BL_JumpToFirmware((uint32_t)settings.firmwareInfo->image);
     
-
     return 0;
 }

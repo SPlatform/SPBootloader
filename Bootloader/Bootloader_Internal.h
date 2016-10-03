@@ -1,11 +1,14 @@
 /********************************* INCLUDES ***********************************/
 
+#include "Bootloader_Config.h"
+
 #include "Debug.h"
 #include "postypes.h"
 
 /***************************** MACRO DEFINITIONS ******************************/
 
-#define BL_JumpToFirmware          Drv_CPUCore_JumpToImage
+#define BL_JumpToFirmware                   Drv_CPUCore_JumpToImage
+
 /***************************** TYPE DEFINITIONS *******************************/
 /*
  * Bootlaoder Status Codes
@@ -15,27 +18,43 @@ typedef enum
 	BL_Status_Success = 1,
 	/* Security Status Codes */
 	BL_StatusSecurity_BadInput = 10,
-	BL_StatusSecuirty_InvalidRSASignFormat = 11,
+	BL_StatusSecurity_InvalidRSASignFormat = 11,
 	BL_StatusSecurity_MDVerFail = 12,
-	BL_StatusSecurity_RSAVerFail = 13
+	BL_StatusSecurity_RSAVerFail = 13,
+
+	BL_StatusDev_UartPortCannotBeOpened = 30,
+	BL_StatusDev_TimerCannotBeCreated,
+
+	BL_StatusUpgrade_InCompatibleFWOffset = 50,
+	BL_StatusUpgrade_FWExceedsFlash,
+	BL_StatusUpgrade_Timeout,
+
+
+
 } BLStatusCode;
 
-/*
- * Firmware Meta Data
- */
+
 typedef struct
 {
-	uint8_t* imageAddress;
-	uint32_t imageLength;
-	uint8_t* imageSignatureAddress;
-	uint32_t imageSignatureLength;
-} FirmwareMetaData;
+	uint32_t imageSize;
+	uint32_t imageOffset;
+} FirmwareMetaDataHeader;
+
+typedef struct
+{
+    FirmwareMetaDataHeader header;
+    uint32_t padding[(FIRMWARE_SIGNATURE_LENGTH - sizeof(FirmwareMetaDataHeader)) / sizeof(uint32_t)];
+    uint8_t imageSignature[FIRMWARE_SIGNATURE_LENGTH];
+    uint32_t image[1];
+} FirmwareInfo;
 
 /**************************** FUNCTION PROTOTYPES *****************************/
 
 /******************************** VARIABLES ***********************************/
 
 /**************************** PRIVATE FUNCTIONS ******************************/
+
+//static FirmwareMetaData2 fwMetaData = { 0 };
 
 /***************************** PUBLIC FUNCTIONS *******************************/
 /*
@@ -65,4 +84,6 @@ void BL_SecurityInit(void);
  * @retval BL_StatusSecurity_RSAVerFail RSA validation failure
  *
  */
-BLStatusCode BL_ValidateImage(FirmwareMetaData* fwMetaData);
+BLStatusCode BL_ValidateImage(FirmwareInfo* fwMetaData);
+
+BLStatusCode BL_UpgradeFirmware(void);
