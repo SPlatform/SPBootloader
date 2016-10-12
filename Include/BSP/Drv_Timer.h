@@ -44,7 +44,7 @@
 #include "postypes.h"
 
 /***************************** MACRO DEFINITIONS ******************************/
-
+#define DRV_TIMER_INVALID_HANDLE		(-1)
 /***************************** TYPE DEFINITIONS *******************************/
 /* HW Timer no */
 typedef uint32_t TimerNo;
@@ -74,6 +74,7 @@ typedef enum
 } DrvTimerPriority;
 
 /*************************** FUNCTION DEFINITIONS *****************************/
+void Drv_Timer_Init(void);
 
 /*
  * Creates a SW Timer which matches with a HW Timer.
@@ -95,6 +96,8 @@ typedef enum
 TimerHandle Drv_Timer_Create(TimerNo timerNo,
 							 DrvTimerPriority priority,
                              DrvTimerCallback timerCallback);
+
+void Drv_Timer_Release(TimerHandle timer);
 
 /*
  * Starts a Timer.

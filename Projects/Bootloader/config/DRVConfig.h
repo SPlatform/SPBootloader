@@ -1,10 +1,10 @@
 /*******************************************************************************
  *
- * @file Drv_UserTimer.h
+ * @file DRVConfig.h
  *
  * @author Murat Cakmak
  *
- * @brief User Timer Driver Interface
+ * @brief Project Specific Driver Layer Configurations
  *
  * @see https://github.com/P-LATFORM/P-OS/wiki
  *
@@ -12,7 +12,7 @@
  *
  * The MIT License (MIT)
  *
- * Copyright (c) 2016 P-OS
+ * Copyright (c) 2016 Platform
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -33,27 +33,17 @@
  * SOFTWARE.
  *
  *******************************************************************************/
-#ifndef __DRV_USERTIMER_H
-#define __DRV_USERTIMER_H
+#ifndef __DRV_CONFIG_H
+#define __DRV_CONFIG_H
 
 /********************************* INCLUDES ***********************************/
-
 #include "postypes.h"
-
 /***************************** MACRO DEFINITIONS ******************************/
-#define DRV_TIMER_INVALID_HANDLE        (-1)
 
 /***************************** TYPE DEFINITIONS *******************************/
-typedef int32_t Drv_TimerHandle;
-typedef void (*Drv_TimerCallback)(void);
+/*
+ * Used HW Timer count in that projects.
+ */
+#define DRV_CONFIG_NUM_OF_USED_HW_TIMERS				(2)
 
-/*************************** FUNCTION DEFINITIONS *****************************/
-void Drv_UserTimer_Init(void);
-Drv_TimerHandle Drv_UserTimer_Create(Drv_TimerCallback userTimerCB);
-void Drv_UserTimer_Remove(Drv_TimerHandle timer);
-void Drv_UserTimer_Start(Drv_TimerHandle timer, uint32_t timeout);
-void Drv_UserTimer_Stop(Drv_TimerHandle timer, uint32_t timeout);
-void Drv_UserTimer_DelayUs(uint32_t microseconds);
-void Drv_UserTimer_DelayMs(uint32_t milliseconds);
-
-#endif	/* __DRV_USERTIMER_H */
+#endif	/* __DRV_CONFIG_H */

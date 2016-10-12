@@ -51,8 +51,8 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>..\..\..\..\Bootloader\Config\mbedtls;..\..\..\..\Bootloader\Config;..\..\..\..\Environment\ExternalLib\mbedTLS\include;..\..\..\..\Include\BSP;..\..\..\..\Include;..\..\..\..\Environment\ExternalLib\mbedTLS\include\mbedtls;..\..\..\..\Environment\Tools\Debug;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>..\..\..\config;..\..\..\config\mbedtls;..\..\..\..\..\Include\BSP;..\..\..\..\..\Include;..\..\..\..\..\Environment\Lib\IntelHex;..\..\..\..\..\Environment\ExternalLib\mbedTLS\include;..\..\..\..\..\Environment\ExternalLib\mbedTLS\include\mbedtls;..\..\..\..\..\Environment\Tools\Debug;..\..\..\..\..\Bootloader\TestData;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -79,49 +79,64 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\..\..\Bootloader\Bootloader.c">
+    <ClCompile Include="..\..\..\..\..\Bootloader\Bootloader.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Bootloader\Bootloader_Security.c">
+    <ClCompile Include="..\..\..\..\..\Bootloader\Bootloader_Security.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\BSP\CPU\x86\Drv_CPUCore.c">
+    <ClCompile Include="..\..\..\..\..\Bootloader\Bootloader_Upgrade.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\asn1parse.c">
+    <ClCompile Include="..\..\..\..\..\BSP\CPU\x86\Drv_CPUCore.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\bignum.c">
+    <ClCompile Include="..\..\..\..\..\BSP\CPU\x86\Drv_Flash.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\md.c">
+    <ClCompile Include="..\..\..\..\..\BSP\CPU\x86\Drv_Timer.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\md5.c">
+    <ClCompile Include="..\..\..\..\..\BSP\CPU\x86\Drv_UART.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\md_wrap.c">
+    <ClCompile Include="..\..\..\..\..\Environment\ExternalLib\mbedTLS\library\asn1parse.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\memory_buffer_alloc.c">
+    <ClCompile Include="..\..\..\..\..\Environment\ExternalLib\mbedTLS\library\bignum.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\oid.c">
+    <ClCompile Include="..\..\..\..\..\Environment\ExternalLib\mbedTLS\library\md.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\platform.c">
+    <ClCompile Include="..\..\..\..\..\Environment\ExternalLib\mbedTLS\library\md5.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\ripemd160.c">
+    <ClCompile Include="..\..\..\..\..\Environment\ExternalLib\mbedTLS\library\md_wrap.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\rsa.c">
+    <ClCompile Include="..\..\..\..\..\Environment\ExternalLib\mbedTLS\library\memory_buffer_alloc.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\sha1.c">
+    <ClCompile Include="..\..\..\..\..\Environment\ExternalLib\mbedTLS\library\oid.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
     </ClCompile>
-    <ClCompile Include="..\..\..\..\Environment\ExternalLib\mbedTLS\library\sha256.c">
+    <ClCompile Include="..\..\..\..\..\Environment\ExternalLib\mbedTLS\library\platform.c">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Environment\ExternalLib\mbedTLS\library\ripemd160.c">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Environment\ExternalLib\mbedTLS\library\rsa.c">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Environment\ExternalLib\mbedTLS\library\sha1.c">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Environment\ExternalLib\mbedTLS\library\sha256.c">
+      <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
+    </ClCompile>
+    <ClCompile Include="..\..\..\..\..\Environment\Lib\IntelHex\IntelHex.c">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
     </ClCompile>
     <ClCompile Include="MainForm.cpp" />
@@ -130,7 +145,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\..\Bootloader\Bootloader_Internal.h" />
+    <ClInclude Include="..\..\..\..\..\Bootloader\TestData\TestData.h" />
+    <ClInclude Include="..\..\..\..\..\Bootloader\Bootloader_Internal.h" />
+    <ClInclude Include="..\..\..\..\..\Bootloader\Config\Bootloader_Config.h" />
+    <ClInclude Include="..\..\..\..\..\Environment\Lib\IntelHex\IntelHex.h" />
     <ClInclude Include="MainForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>

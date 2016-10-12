@@ -120,11 +120,11 @@ INTERNAL void BL_SecurityInit(void)
  *	Uses RSA2048 and SHA256 to verify and validate images. 
  *
  */
-INTERNAL BLStatusCode BL_ValidateImage(FirmwareMetaData* fwMetaData)
+INTERNAL BLStatusCode BL_ValidateImage(FirmwareInfo* fwMetaData)
 {
     RSAPublicKey rsaPublicKey;
 	BLStatusCode status = BL_Status_Success;
-	int32_t retVal = BOOL_FALSE;
+	int32_t retVal = false;
 	mbedtls_rsa_context rsa;
 	unsigned char hash[32];
     
@@ -146,16 +146,17 @@ INTERNAL BLStatusCode BL_ValidateImage(FirmwareMetaData* fwMetaData)
 	/* TODO What do '+7' and '>>3 mean?'*/
 	rsa.len = (mbedtls_mpi_bitlen(&rsa.N) + 7) >> 3;
 	
-	if (rsa.len != fwMetaData->imageSignatureLength)
+	if (rsa.len != FIRMWARE_SIGNATURE_LENGTH)
 	{
-		status = BL_StatusSecuirty_InvalidRSASignFormat;
+		status = BL_StatusSecurity_InvalidRSASignFormat;
 
 		goto exit;
 	}
 
     /* Check Data Integrity according to SHA */
 	retVal = mbedtls_md(mbedtls_md_info_from_type(MBEDTLS_MD_SHA256),
-						fwMetaData->imageAddress, fwMetaData->imageLength, hash);
+						(unsigned char*)fwMetaData->image, fwMetaData->header.imageSize, hash);
+
 	if (retVal != 0)
 	{
 		status = BL_StatusSecurity_MDVerFail;
@@ -166,7 +167,7 @@ INTERNAL BLStatusCode BL_ValidateImage(FirmwareMetaData* fwMetaData)
     /* Check RSA Signature */
 	retVal = mbedtls_rsa_pkcs1_verify(&rsa, NULL, NULL, MBEDTLS_RSA_PUBLIC,
 									  MBEDTLS_MD_SHA256, 20, hash, 
-									  fwMetaData->imageSignatureAddress);
+									  fwMetaData->imageSignature);
 	if (retVal != 0)
 	{
 		status = BL_StatusSecurity_RSAVerFail;

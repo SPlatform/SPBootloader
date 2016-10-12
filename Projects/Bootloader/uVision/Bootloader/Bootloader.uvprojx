@@ -51,7 +51,7 @@
           <OutputName>Bootloader</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
-          <CreateHexFile>0</CreateHexFile>
+          <CreateHexFile>1</CreateHexFile>
           <DebugInformation>1</DebugInformation>
           <BrowseInformation>1</BrowseInformation>
           <ListingPath>.\Listings\</ListingPath>
@@ -334,7 +334,7 @@
               <MiscControls></MiscControls>
               <Define></Define>
               <Undefine></Undefine>
-              <IncludePath>..\..\..\Include;..\..\..\Include\BSP;..\..\..\BSP\CPU\LPC1768;..\..\..\BSP\CPU\LPC1768\internal;..\..\..\Bootloader\Config;..\..\..\Bootloader\Config\mbedtls;..\..\..\Environment\ExternalLib\mbedTLS\include;..\..\..\Environment\ExternalLib\mbedTLS\include\mbedtls;..\..\..\Environment\Tools\Debug</IncludePath>
+              <IncludePath>..\..\config;..\..\config\mbedtls;..\..\..\..\Include;..\..\..\..\Include\BSP;..\..\..\..\BSP\CPU\LPC1768;..\..\..\..\BSP\CPU\LPC1768\internal;..\..\..\..\Environment\Lib\IntelHex;..\..\..\..\Environment\ExternalLib\mbedTLS\include;..\..\..\..\Environment\ExternalLib\mbedTLS\include\mbedtls;..\..\..\..\Environment\Tools\Debug;..\..\..\..\Bootloader\TestData</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -380,22 +380,32 @@
             <File>
               <FileName>Bootloader.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\Bootloader\Bootloader.c</FilePath>
+              <FilePath>..\..\..\..\Bootloader\Bootloader.c</FilePath>
             </File>
             <File>
               <FileName>Bootloader_Security.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\Bootloader\Bootloader_Security.c</FilePath>
+              <FilePath>..\..\..\..\Bootloader\Bootloader_Security.c</FilePath>
             </File>
             <File>
               <FileName>Bootloader_Internal.h</FileName>
               <FileType>5</FileType>
-              <FilePath>..\..\..\Bootloader\Bootloader_Internal.h</FilePath>
+              <FilePath>..\..\..\..\Bootloader\Bootloader_Internal.h</FilePath>
             </File>
             <File>
               <FileName>Bootloader_Config.h</FileName>
               <FileType>5</FileType>
               <FilePath>..\..\..\Bootloader\Config\Bootloader_Config.h</FilePath>
+            </File>
+            <File>
+              <FileName>Bootloader_Upgrade.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\Bootloader\Bootloader_Upgrade.c</FilePath>
+            </File>
+            <File>
+              <FileName>TestData.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>..\..\..\..\Bootloader\TestData\TestData.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -405,87 +415,112 @@
             <File>
               <FileName>Drv_CPUCore.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\BSP\CPU\LPC1768\Drv_CPUCore.c</FilePath>
+              <FilePath>..\..\..\..\BSP\CPU\LPC1768\Drv_CPUCore.c</FilePath>
             </File>
             <File>
               <FileName>Drv_CPUCore_Assembly.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\BSP\CPU\LPC1768\Drv_CPUCore_Assembly.c</FilePath>
-            </File>
-            <File>
-              <FileName>startup_LPC17xx.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>..\..\..\BSP\CPU\LPC1768\internal\startup_LPC17xx.s</FilePath>
+              <FilePath>..\..\..\..\BSP\CPU\LPC1768\Drv_CPUCore_Assembly.c</FilePath>
             </File>
             <File>
               <FileName>system_LPC17xx.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\BSP\CPU\LPC1768\internal\system_LPC17xx.c</FilePath>
+              <FilePath>..\..\..\..\BSP\CPU\LPC1768\internal\system_LPC17xx.c</FilePath>
+            </File>
+            <File>
+              <FileName>Drv_Timer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\BSP\CPU\LPC1768\Drv_Timer.c</FilePath>
+            </File>
+            <File>
+              <FileName>Drv_UART.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\BSP\CPU\LPC1768\Drv_UART.c</FilePath>
+            </File>
+            <File>
+              <FileName>startup_LPC17xx.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>..\..\config\startup_LPC17xx.s</FilePath>
+            </File>
+            <File>
+              <FileName>Drv_Flash.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\BSP\CPU\LPC1768\Drv_Flash.c</FilePath>
             </File>
           </Files>
         </Group>
         <Group>
-          <GroupName>External</GroupName>
+          <GroupName>ExternalLib</GroupName>
           <Files>
             <File>
               <FileName>asn1parse.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\asn1parse.c</FilePath>
+              <FilePath>..\..\..\..\Environment\ExternalLib\mbedTLS\library\asn1parse.c</FilePath>
             </File>
             <File>
               <FileName>bignum.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\bignum.c</FilePath>
+              <FilePath>..\..\..\..\Environment\ExternalLib\mbedTLS\library\bignum.c</FilePath>
             </File>
             <File>
               <FileName>md.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\md.c</FilePath>
+              <FilePath>..\..\..\..\Environment\ExternalLib\mbedTLS\library\md.c</FilePath>
             </File>
             <File>
               <FileName>md_wrap.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\md_wrap.c</FilePath>
+              <FilePath>..\..\..\..\Environment\ExternalLib\mbedTLS\library\md_wrap.c</FilePath>
             </File>
             <File>
               <FileName>md5.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\md5.c</FilePath>
+              <FilePath>..\..\..\..\Environment\ExternalLib\mbedTLS\library\md5.c</FilePath>
             </File>
             <File>
               <FileName>oid.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\oid.c</FilePath>
+              <FilePath>..\..\..\..\Environment\ExternalLib\mbedTLS\library\oid.c</FilePath>
             </File>
             <File>
               <FileName>platform.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\platform.c</FilePath>
+              <FilePath>..\..\..\..\Environment\ExternalLib\mbedTLS\library\platform.c</FilePath>
             </File>
             <File>
               <FileName>ripemd160.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\ripemd160.c</FilePath>
+              <FilePath>..\..\..\..\Environment\ExternalLib\mbedTLS\library\ripemd160.c</FilePath>
             </File>
             <File>
               <FileName>rsa.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\rsa.c</FilePath>
+              <FilePath>..\..\..\..\Environment\ExternalLib\mbedTLS\library\rsa.c</FilePath>
             </File>
             <File>
               <FileName>sha1.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\sha1.c</FilePath>
+              <FilePath>..\..\..\..\Environment\ExternalLib\mbedTLS\library\sha1.c</FilePath>
             </File>
             <File>
               <FileName>sha256.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\sha256.c</FilePath>
+              <FilePath>..\..\..\..\Environment\ExternalLib\mbedTLS\library\sha256.c</FilePath>
             </File>
             <File>
               <FileName>memory_buffer_alloc.c</FileName>
               <FileType>1</FileType>
-              <FilePath>..\..\..\Environment\ExternalLib\mbedTLS\library\memory_buffer_alloc.c</FilePath>
+              <FilePath>..\..\..\..\Environment\ExternalLib\mbedTLS\library\memory_buffer_alloc.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Lib</GroupName>
+          <Files>
+            <File>
+              <FileName>IntelHex.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\..\..\..\Environment\Lib\IntelHex\IntelHex.c</FilePath>
             </File>
           </Files>
         </Group>

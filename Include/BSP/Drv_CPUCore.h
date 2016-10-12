@@ -63,6 +63,24 @@ void Drv_CPUCore_Init(void);
 void Drv_CPUCore_Halt(void);
 
 /*
+ * Enables all interrupts.
+ *
+ * @param none
+ * @return none
+ *
+ */
+void Drv_CPUCore_EnableInterrupts(void);
+
+/*
+ * Disables all interrupts.
+ *
+ * @param none
+ * @return none
+ *
+ */
+void Drv_CPUCore_DisableInterrupts(void);
+
+/*
  * Starts Context Switching
  *  Configures HW for CS and starts first task
  *
@@ -104,5 +122,13 @@ reg32_t* Drv_CPUCore_CSInitializeTaskStack(uint8_t* stack, uint32_t stackSize,
  * @return none
  */
 void Drv_CPUCore_JumpToImage(reg32_t imageAddress);
+
+/*
+ * Returns actual frequency of CPU
+ *
+ * @param none
+ * @return CPU Core Clock Frequency
+ */
+uint32_t Drv_CPUCore_GetCPUFrequency(void);
 
 #endif	/* __DRV_CPUCORE_H */

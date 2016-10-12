@@ -174,6 +174,30 @@ void Drv_CPUCore_Halt(void)
 }
 
 /*
+ * Enables all interrupts.
+ *
+ * @param none
+ * @return none
+ *
+ */
+void Drv_CPUCore_EnableInterrupts(void)
+{
+	__enable_irq();
+}
+
+/*
+ * Disables all interrupts.
+ *
+ * @param none
+ * @return none
+ *
+ */
+void Drv_CPUCore_DisableInterrupts(void)
+{
+	__disable_irq();
+}
+
+/*
  * Starts Context Switching
  *  Configures HW for CS and starts first task
  *  
@@ -295,4 +319,10 @@ void Drv_CPUCore_JumpToImage(reg32_t imageAddress)
 
     /* We are ready to jump to other image now */
     JumpToImage(imageAddress);
+}
+
+
+uint32_t Drv_CPUCore_GetCPUFrequency(void)
+{
+	return SystemCoreClock;
 }

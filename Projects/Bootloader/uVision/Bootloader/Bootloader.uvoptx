@@ -167,19 +167,91 @@
           <Name>UL2CM3(-S0 -C0 -P0 -FD10000000 -FCFE0 -FN1 -FF0LPC_IAP_512 -FS00 -FL080000 -FP0($$Device:LPC1768$Flash\LPC_IAP_512.FLM))</Name>
         </SetRegEntry>
       </TargetDriverDllRegistry>
-      <Breakpoint/>
+      <Breakpoint>
+        <Bp>
+          <Number>0</Number>
+          <Type>0</Type>
+          <LineNumber>179</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>2520</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>1</BreakIfRCount>
+          <Filename>..\..\..\..\Bootloader\Bootloader.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression>\\Bootloader\../../../../Bootloader/Bootloader.c\179</Expression>
+        </Bp>
+        <Bp>
+          <Number>1</Number>
+          <Type>0</Type>
+          <LineNumber>171</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>..\..\..\..\Bootloader\Bootloader.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>2</Number>
+          <Type>0</Type>
+          <LineNumber>161</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>..\..\..\..\Bootloader\Bootloader.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+      </Breakpoint>
       <WatchWindow1>
         <Ww>
           <count>0</count>
           <WinNumber>1</WinNumber>
-          <ItemText>settings</ItemText>
+          <ItemText>blockData</ItemText>
         </Ww>
         <Ww>
           <count>1</count>
           <WinNumber>1</WinNumber>
-          <ItemText>(uint32_t)settings.firmwareMetaData.imageAddress</ItemText>
+          <ItemText>firmware</ItemText>
+        </Ww>
+        <Ww>
+          <count>2</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>upgradeSettings</ItemText>
+        </Ww>
+        <Ww>
+          <count>3</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>fwMetaData</ItemText>
+        </Ww>
+        <Ww>
+          <count>4</count>
+          <WinNumber>1</WinNumber>
+          <ItemText>(uint32_t)settings.firmwareInfo-&gt;image</ItemText>
         </Ww>
       </WatchWindow1>
+      <MemoryWindow1>
+        <Mm>
+          <WinNumber>1</WinNumber>
+          <SubType>0</SubType>
+          <ItemText>0x10100</ItemText>
+          <AccSizeX>0</AccSizeX>
+        </Mm>
+      </MemoryWindow1>
       <Tracepoint>
         <THDelay>0</THDelay>
       </Tracepoint>
@@ -220,7 +292,7 @@
 
   <Group>
     <GroupName>Bootloader</GroupName>
-    <tvExp>0</tvExp>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
@@ -231,7 +303,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\Bootloader\Bootloader.c</PathWithFileName>
+      <PathWithFileName>..\..\..\..\Bootloader\Bootloader.c</PathWithFileName>
       <FilenameWithoutPath>Bootloader.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -243,7 +315,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\Bootloader\Bootloader_Security.c</PathWithFileName>
+      <PathWithFileName>..\..\..\..\Bootloader\Bootloader_Security.c</PathWithFileName>
       <FilenameWithoutPath>Bootloader_Security.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -255,7 +327,7 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\Bootloader\Bootloader_Internal.h</PathWithFileName>
+      <PathWithFileName>..\..\..\..\Bootloader\Bootloader_Internal.h</PathWithFileName>
       <FilenameWithoutPath>Bootloader_Internal.h</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
@@ -272,47 +344,47 @@
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
-  </Group>
-
-  <Group>
-    <GroupName>Driver + HAL</GroupName>
-    <tvExp>0</tvExp>
-    <tvExpOptDlg>0</tvExpOptDlg>
-    <cbSel>0</cbSel>
-    <RteFlg>0</RteFlg>
     <File>
-      <GroupNumber>2</GroupNumber>
+      <GroupNumber>1</GroupNumber>
       <FileNumber>5</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\BSP\CPU\LPC1768\Drv_CPUCore.c</PathWithFileName>
-      <FilenameWithoutPath>Drv_CPUCore.c</FilenameWithoutPath>
+      <PathWithFileName>..\..\..\..\Bootloader\Bootloader_Upgrade.c</PathWithFileName>
+      <FilenameWithoutPath>Bootloader_Upgrade.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
     <File>
-      <GroupNumber>2</GroupNumber>
+      <GroupNumber>1</GroupNumber>
       <FileNumber>6</FileNumber>
+      <FileType>5</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\..\..\Bootloader\TestData\TestData.h</PathWithFileName>
+      <FilenameWithoutPath>TestData.h</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+  </Group>
+
+  <Group>
+    <GroupName>Driver + HAL</GroupName>
+    <tvExp>1</tvExp>
+    <tvExpOptDlg>0</tvExpOptDlg>
+    <cbSel>0</cbSel>
+    <RteFlg>0</RteFlg>
+    <File>
+      <GroupNumber>2</GroupNumber>
+      <FileNumber>7</FileNumber>
       <FileType>1</FileType>
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\BSP\CPU\LPC1768\Drv_CPUCore_Assembly.c</PathWithFileName>
-      <FilenameWithoutPath>Drv_CPUCore_Assembly.c</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>2</GroupNumber>
-      <FileNumber>7</FileNumber>
-      <FileType>2</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\BSP\CPU\LPC1768\internal\startup_LPC17xx.s</PathWithFileName>
-      <FilenameWithoutPath>startup_LPC17xx.s</FilenameWithoutPath>
+      <PathWithFileName>..\..\..\..\BSP\CPU\LPC1768\Drv_CPUCore.c</PathWithFileName>
+      <FilenameWithoutPath>Drv_CPUCore.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -323,79 +395,79 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\BSP\CPU\LPC1768\internal\system_LPC17xx.c</PathWithFileName>
+      <PathWithFileName>..\..\..\..\BSP\CPU\LPC1768\Drv_CPUCore_Assembly.c</PathWithFileName>
+      <FilenameWithoutPath>Drv_CPUCore_Assembly.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>2</GroupNumber>
+      <FileNumber>9</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\..\..\BSP\CPU\LPC1768\internal\system_LPC17xx.c</PathWithFileName>
       <FilenameWithoutPath>system_LPC17xx.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>2</GroupNumber>
+      <FileNumber>10</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\..\..\BSP\CPU\LPC1768\Drv_Timer.c</PathWithFileName>
+      <FilenameWithoutPath>Drv_Timer.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>2</GroupNumber>
+      <FileNumber>11</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\..\..\BSP\CPU\LPC1768\Drv_UART.c</PathWithFileName>
+      <FilenameWithoutPath>Drv_UART.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>2</GroupNumber>
+      <FileNumber>12</FileNumber>
+      <FileType>2</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\config\startup_LPC17xx.s</PathWithFileName>
+      <FilenameWithoutPath>startup_LPC17xx.s</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>2</GroupNumber>
+      <FileNumber>13</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\..\..\BSP\CPU\LPC1768\Drv_Flash.c</PathWithFileName>
+      <FilenameWithoutPath>Drv_Flash.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
   </Group>
 
   <Group>
-    <GroupName>External</GroupName>
-    <tvExp>0</tvExp>
+    <GroupName>ExternalLib</GroupName>
+    <tvExp>1</tvExp>
     <tvExpOptDlg>0</tvExpOptDlg>
     <cbSel>0</cbSel>
     <RteFlg>0</RteFlg>
-    <File>
-      <GroupNumber>3</GroupNumber>
-      <FileNumber>9</FileNumber>
-      <FileType>1</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\Environment\ExternalLib\mbedTLS\library\asn1parse.c</PathWithFileName>
-      <FilenameWithoutPath>asn1parse.c</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>3</GroupNumber>
-      <FileNumber>10</FileNumber>
-      <FileType>1</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\Environment\ExternalLib\mbedTLS\library\bignum.c</PathWithFileName>
-      <FilenameWithoutPath>bignum.c</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>3</GroupNumber>
-      <FileNumber>11</FileNumber>
-      <FileType>1</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\Environment\ExternalLib\mbedTLS\library\md.c</PathWithFileName>
-      <FilenameWithoutPath>md.c</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>3</GroupNumber>
-      <FileNumber>12</FileNumber>
-      <FileType>1</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\Environment\ExternalLib\mbedTLS\library\md_wrap.c</PathWithFileName>
-      <FilenameWithoutPath>md_wrap.c</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
-    <File>
-      <GroupNumber>3</GroupNumber>
-      <FileNumber>13</FileNumber>
-      <FileType>1</FileType>
-      <tvExp>0</tvExp>
-      <tvExpOptDlg>0</tvExpOptDlg>
-      <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\Environment\ExternalLib\mbedTLS\library\md5.c</PathWithFileName>
-      <FilenameWithoutPath>md5.c</FilenameWithoutPath>
-      <RteFlg>0</RteFlg>
-      <bShared>0</bShared>
-    </File>
     <File>
       <GroupNumber>3</GroupNumber>
       <FileNumber>14</FileNumber>
@@ -403,8 +475,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\Environment\ExternalLib\mbedTLS\library\oid.c</PathWithFileName>
-      <FilenameWithoutPath>oid.c</FilenameWithoutPath>
+      <PathWithFileName>..\..\..\..\Environment\ExternalLib\mbedTLS\library\asn1parse.c</PathWithFileName>
+      <FilenameWithoutPath>asn1parse.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -415,8 +487,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\Environment\ExternalLib\mbedTLS\library\platform.c</PathWithFileName>
-      <FilenameWithoutPath>platform.c</FilenameWithoutPath>
+      <PathWithFileName>..\..\..\..\Environment\ExternalLib\mbedTLS\library\bignum.c</PathWithFileName>
+      <FilenameWithoutPath>bignum.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -427,8 +499,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\Environment\ExternalLib\mbedTLS\library\ripemd160.c</PathWithFileName>
-      <FilenameWithoutPath>ripemd160.c</FilenameWithoutPath>
+      <PathWithFileName>..\..\..\..\Environment\ExternalLib\mbedTLS\library\md.c</PathWithFileName>
+      <FilenameWithoutPath>md.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -439,8 +511,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\Environment\ExternalLib\mbedTLS\library\rsa.c</PathWithFileName>
-      <FilenameWithoutPath>rsa.c</FilenameWithoutPath>
+      <PathWithFileName>..\..\..\..\Environment\ExternalLib\mbedTLS\library\md_wrap.c</PathWithFileName>
+      <FilenameWithoutPath>md_wrap.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -451,8 +523,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\Environment\ExternalLib\mbedTLS\library\sha1.c</PathWithFileName>
-      <FilenameWithoutPath>sha1.c</FilenameWithoutPath>
+      <PathWithFileName>..\..\..\..\Environment\ExternalLib\mbedTLS\library\md5.c</PathWithFileName>
+      <FilenameWithoutPath>md5.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -463,8 +535,8 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\Environment\ExternalLib\mbedTLS\library\sha256.c</PathWithFileName>
-      <FilenameWithoutPath>sha256.c</FilenameWithoutPath>
+      <PathWithFileName>..\..\..\..\Environment\ExternalLib\mbedTLS\library\oid.c</PathWithFileName>
+      <FilenameWithoutPath>oid.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
@@ -475,8 +547,88 @@
       <tvExp>0</tvExp>
       <tvExpOptDlg>0</tvExpOptDlg>
       <bDave2>0</bDave2>
-      <PathWithFileName>..\..\..\Environment\ExternalLib\mbedTLS\library\memory_buffer_alloc.c</PathWithFileName>
+      <PathWithFileName>..\..\..\..\Environment\ExternalLib\mbedTLS\library\platform.c</PathWithFileName>
+      <FilenameWithoutPath>platform.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>3</GroupNumber>
+      <FileNumber>21</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\..\..\Environment\ExternalLib\mbedTLS\library\ripemd160.c</PathWithFileName>
+      <FilenameWithoutPath>ripemd160.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>3</GroupNumber>
+      <FileNumber>22</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\..\..\Environment\ExternalLib\mbedTLS\library\rsa.c</PathWithFileName>
+      <FilenameWithoutPath>rsa.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>3</GroupNumber>
+      <FileNumber>23</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\..\..\Environment\ExternalLib\mbedTLS\library\sha1.c</PathWithFileName>
+      <FilenameWithoutPath>sha1.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>3</GroupNumber>
+      <FileNumber>24</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\..\..\Environment\ExternalLib\mbedTLS\library\sha256.c</PathWithFileName>
+      <FilenameWithoutPath>sha256.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+    <File>
+      <GroupNumber>3</GroupNumber>
+      <FileNumber>25</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\..\..\Environment\ExternalLib\mbedTLS\library\memory_buffer_alloc.c</PathWithFileName>
       <FilenameWithoutPath>memory_buffer_alloc.c</FilenameWithoutPath>
+      <RteFlg>0</RteFlg>
+      <bShared>0</bShared>
+    </File>
+  </Group>
+
+  <Group>
+    <GroupName>Lib</GroupName>
+    <tvExp>1</tvExp>
+    <tvExpOptDlg>0</tvExpOptDlg>
+    <cbSel>0</cbSel>
+    <RteFlg>0</RteFlg>
+    <File>
+      <GroupNumber>4</GroupNumber>
+      <FileNumber>26</FileNumber>
+      <FileType>1</FileType>
+      <tvExp>0</tvExp>
+      <tvExpOptDlg>0</tvExpOptDlg>
+      <bDave2>0</bDave2>
+      <PathWithFileName>..\..\..\..\Environment\Lib\IntelHex\IntelHex.c</PathWithFileName>
+      <FilenameWithoutPath>IntelHex.c</FilenameWithoutPath>
       <RteFlg>0</RteFlg>
       <bShared>0</bShared>
     </File>
